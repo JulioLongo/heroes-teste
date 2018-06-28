@@ -8,6 +8,109 @@
 
 
     <EditText
+        android:id="@+id/edNomeHeroi"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:hint="Nome Herói"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtClasse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="36dp"
+        android:hint="Classe"
+        app:layout_constraintStart_toEndOf="@+id/btnAnterior"
+        app:layout_constraintTop_toBottomOf="@+id/edNomeHeroi" />
+
+    <Button
+        android:id="@+id/btnAnterior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Anterior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edNomeHeroi" />
+
+    <Button
+        android:id="@+id/btnProximo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="20dp"
+        android:text="Proximo"
+        app:layout_constraintStart_toEndOf="@+id/txtClasse"
+        app:layout_constraintTop_toBottomOf="@+id/edNomeHeroi" />
+
+    <EditText
+        android:id="@+id/edHealthPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:hint="Pontos de Vida"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAnterior" />
+
+    <EditText
+        android:id="@+id/edDefense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:hint="Defesa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edHealthPoints" />
+
+    <EditText
+        android:id="@+id/edDamage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:hint="Dano"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edDefense" />
+
+    <EditText
+        android:id="@+id/edAttackSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_marginTop="16dp"
+        android:hint="Velocidade de Ataque"
+        app:layout_constraintTop_toBottomOf="@+id/edDamage"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/edMovimentSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_marginTop="16dp"
+        android:hint="Velocidade de Movimento"
+        app:layout_constraintTop_toBottomOf="@+id/edAttackSpeed"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/btnCriar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Criar"
+        app:layout_constraintStart_toEndOf="@+id/edMovimentSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/edAttackSpeed" />
+
 </android.support.constraint.ConstraintLayout>

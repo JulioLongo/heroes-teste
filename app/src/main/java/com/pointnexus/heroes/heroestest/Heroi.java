@@ -10,27 +10,35 @@ public class Heroi {
     @SerializedName("class_id")
     @Expose
     private Integer classId;
+
     @SerializedName("name")
     @Expose
     private String name;
+
     @SerializedName("health_points")
     @Expose
     private Integer healthPoints;
+
     @SerializedName("defense")
     @Expose
     private Integer defense;
+
     @SerializedName("damage")
     @Expose
     private Integer damage;
+
     @SerializedName("attack_speed")
     @Expose
     private Double attackSpeed;
+
     @SerializedName("moviment_speed")
     @Expose
     private Integer movimentSpeed;
+
     @SerializedName("specialties")
     @Expose
     private  List<String> specialties = null;
+
     @SerializedName("photos")
     @Expose
     private  List<String> photos = null;
