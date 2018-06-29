@@ -27,7 +27,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class InserirActivity extends AppCompatActivity {
 
     private static final String TAG = InserirActivity.class.getSimpleName();
-    List<String> supplierNames = Arrays.asList("sup1", "sup2");
+    List<Integer> supplierNames = Arrays.asList(1, 2);
     Api api;
 
     EditText edNomeHeroi;

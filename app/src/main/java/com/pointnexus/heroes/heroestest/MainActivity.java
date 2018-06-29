@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnInserir;
         Button btnMagias;
         Button btnClasses;
+        Button btnHerois;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             btnInserir = (Button) findViewById(R.id.botaoInserir);
             btnMagias = (Button) findViewById(R.id.botaoMagias);
             btnClasses = (Button) findViewById(R.id.botaoClasses);
+            btnHerois = (Button) findViewById(R.id.botaoHerois);
 
             btnMagias.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -60,7 +62,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-
+            btnHerois.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, HeroiActivity.class);
+                    startActivity(intent);
+                }
+            });
 
 
         }

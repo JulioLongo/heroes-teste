@@ -6,6 +6,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Heroi {
+    int id;
+    String class_name;
 
     @SerializedName("class_id")
     @Expose
@@ -37,13 +39,13 @@ public class Heroi {
 
     @SerializedName("specialties")
     @Expose
-    private  List<String> specialties = null;
+    private  List<Integer> specialties = null;
 
     @SerializedName("photos")
     @Expose
-    private  List<String> photos = null;
+    private  List<Integer> photos = null;
 
-    public Heroi(Integer classId, String name, Integer healthPoints, Integer defense, Integer damage, Double attackSpeed, Integer movimentSpeed, List<String> specialties, List<String> photos) {
+    public Heroi(Integer classId, String name, Integer healthPoints, Integer defense, Integer damage, Double attackSpeed, Integer movimentSpeed, List<Integer> specialties, List<Integer> photos) {
         this.classId = classId;
         this.name = name;
         this.healthPoints = healthPoints;
@@ -53,6 +55,14 @@ public class Heroi {
         this.movimentSpeed = movimentSpeed;
         this.specialties = specialties;
         this.photos = photos;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getClassName() {
+        return class_name;
     }
 
     public Integer getClassId() {
@@ -111,19 +121,19 @@ public class Heroi {
         this.movimentSpeed = movimentSpeed;
     }
 
-    public  List<String> getSpecialties() {
+    public  List<Integer> getSpecialties() {
         return specialties;
     }
 
-    public void setSpecialties( List<String> specialties) {
+    public void setSpecialties( List<Integer> specialties) {
         this.specialties = specialties;
     }
 
-    public  List<String> getPhotos() {
+    public  List<Integer> getPhotos() {
         return photos;
     }
 
-    public void setPhotos( List<String> photos) {
+    public void setPhotos( List<Integer> photos) {
         this.photos = photos;
     }
 

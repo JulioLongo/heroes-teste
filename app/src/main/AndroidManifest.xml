@@ -20,9 +20,9 @@
         </activity>
         <activity android:name=".InserirActivity" />
         <activity android:name=".MagiasActivity" />
-        <activity android:name=".ClassesActivity">
-
-        </activity>
+        <activity android:name=".ClassesActivity" />
+        <activity android:name=".HeroiActivity" />
+        <activity android:name=".AtualizarActivity"></activity>
     </application>
 
 </manifest>

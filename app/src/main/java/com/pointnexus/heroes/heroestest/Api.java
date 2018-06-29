@@ -4,6 +4,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -15,6 +16,12 @@ import retrofit2.http.Query;
 public interface Api {
 
     String BASE_URL = "http://heroes.qanw.com.br:6847/";
+
+    @DELETE("heroes/{id}")
+    Call<Heroi> deletarHeroi(@Path("id") String id);
+
+    @GET("heroes")
+    Call<List<Heroi>> pegarHerois();
 
     @GET("classes")
     Call<List<Classes>> pegarClasses();
