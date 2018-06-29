@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HeroiActivity">
+
+    <EditText
+        android:id="@+id/main_edit_username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:hint="Escreva o id de uma classe"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/main_btn_lookup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Procurar"
+        app:layout_constraintStart_toEndOf="@+id/main_edit_username"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/txtId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="184dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginTop="20dp"
+        android:text="Id"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_edit_username" />
+
+    <Button
+        android:id="@+id/btnProximo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:text="Proximo"
+        app:layout_constraintStart_toEndOf="@+id/txtNome"
+        app:layout_constraintTop_toBottomOf="@+id/txtVelocidadeMovimento" />
+
+    <Button
+        android:id="@+id/btnAnterior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginTop="12dp"
+        android:text="Anterior"
+        app:layout_constraintEnd_toStartOf="@+id/txtNome"
+        app:layout_constraintTop_toBottomOf="@+id/txtVelocidadeMovimento" />
+
+    <TextView
+        android:id="@+id/txtNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="156dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="20dp"
+        android:text="nome"
+        app:layout_constraintStart_toStartOf="@+id/main_edit_username"
+        app:layout_constraintTop_toBottomOf="@+id/txtId" />
+
+    <TextView
+        android:id="@+id/txtClasse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="152dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="12dp"
+        android:text="Classe"
+        app:layout_constraintStart_toStartOf="@+id/main_edit_username"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome" />
+
+    <TextView
+        android:id="@+id/txtHealthPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="140dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="28dp"
+        android:text="PontosVida"
+        app:layout_constraintStart_toStartOf="@+id/main_edit_username"
+        app:layout_constraintTop_toBottomOf="@+id/txtClasse" />
+
+    <TextView
+        android:id="@+id/txtDefesa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="152dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="28dp"
+        android:text="Defesa"
+        app:layout_constraintStart_toStartOf="@+id/main_edit_username"
+        app:layout_constraintTop_toBottomOf="@+id/txtHealthPoints" />
+
+    <TextView
+        android:id="@+id/txtDano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="176dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="12dp"
+        android:text="Dano"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDefesa" />
+
+    <TextView
+        android:id="@+id/txtVelocidadeAtaque"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginLeft="132dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="12dp"
+        android:text="Velocidade Ataque"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDano" />
+
+    <TextView
+        android:id="@+id/txtVelocidadeMovimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="120dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="16dp"
+        android:text="Velocidade Movimento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtVelocidadeAtaque" />
+
+    <Button
+        android:id="@+id/btnDeletar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Deletar"
+        app:layout_constraintEnd_toEndOf="@+id/btnProximo"
+        app:layout_constraintTop_toBottomOf="@+id/btnProximo" />
+
+    <Button
+        android:id="@+id/btnAtualizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Atualizar"
+        app:layout_constraintTop_toBottomOf="@+id/btnAnterior"
+        tools:layout_editor_absoluteX="53dp" />
+
+
+</android.support.constraint.ConstraintLayout>
