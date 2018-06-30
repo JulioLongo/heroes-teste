@@ -13,11 +13,13 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 
 public class HeroiActivity extends AppCompatActivity {
 
@@ -91,7 +93,15 @@ public class HeroiActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HeroiActivity.this, AtualizarActivity.class);
-                intent.putExtra("ID",id);
+                intent.putExtra("ID",txtId.getText().toString());
+                intent.putExtra("NOME",txtNome.getText().toString());
+                intent.putExtra("CLASSE",txtClasse.getText().toString());
+                intent.putExtra("HEALTHPOINTS",txtHealthPoints.getText().toString());
+                intent.putExtra("DEFENSE",txtDefesa.getText().toString());
+                intent.putExtra("DAMAGE",txtDano.getText().toString());
+                intent.putExtra("SPEEDATTACK",txtVelocidadeAtaque.getText().toString());
+                intent.putExtra("MOVIMENTSPEED",txtVelocidadeMovimento.getText().toString());
+
                 startActivity(intent);
             }
         });
@@ -167,7 +177,7 @@ public class HeroiActivity extends AppCompatActivity {
     }
 
 
-    //Metodo pegar CLASSES
+    //Metodo pegar Herois
     private void pegarHerois() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
@@ -178,6 +188,7 @@ public class HeroiActivity extends AppCompatActivity {
 
         //chama metodo da api para pegar response
         Call<List<Heroi>> call = api.pegarHerois();
+
 
         call.enqueue(new Callback<List<Heroi>>() {
             @Override

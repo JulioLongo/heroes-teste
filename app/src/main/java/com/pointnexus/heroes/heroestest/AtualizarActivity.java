@@ -1,5 +1,6 @@
 package com.pointnexus.heroes.heroestest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,20 +21,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AtualizarActivity extends AppCompatActivity {
 
     private static final String TAG = InserirActivity.class.getSimpleName();
-    List<Integer> supplierNames = Arrays.asList(1, 2);
+    List<Heroi.SpellValue> supplierNames = Arrays.asList();
+    List<Integer> photos = Arrays.asList();
     Api api;
 
     EditText edNomeHeroi;
     TextView txtClasse;
     Button btnAnterior;
     Button btnProximo;
-    Button btnCriar;
+    Button btnAtualizar;
     EditText edHealthPoints;
     EditText edDefense;
     EditText edDamage;
     EditText edAttackSpeed;
     EditText edMovimentSpeed;
 
+    String id;
     int idClasse;
     int contadorClasse;
     int maxNumClasse;
@@ -49,13 +52,33 @@ public class AtualizarActivity extends AppCompatActivity {
 
         btnProximo = (Button)findViewById(R.id.btnProximo);
         btnAnterior = (Button)findViewById(R.id.btnAnterior);
-        btnCriar = (Button)findViewById(R.id.btnCriar);
+        btnAtualizar = (Button)findViewById(R.id.btnAtualizar);
 
         edHealthPoints = (EditText)findViewById(R.id.edHealthPoints);
         edDefense = (EditText)findViewById(R.id.edDefense);
         edDamage = (EditText)findViewById(R.id.edDamage);
         edAttackSpeed = (EditText)findViewById(R.id.edAttackSpeed);
         edMovimentSpeed = (EditText)findViewById(R.id.edMovimentSpeed);
+
+
+        Intent intent = getIntent(); // gets the previously created intent
+        id = intent.getStringExtra("ID");
+        String nome = intent.getStringExtra("NOME");
+        String classe = intent.getStringExtra("CLASSE");
+        String healthpoints = intent.getStringExtra("HEALTHPOINTS");
+        String defense = intent.getStringExtra("DEFENSE");
+        String damage = intent.getStringExtra("DAMAGE");
+        String speedattack = intent.getStringExtra("SPEEDATTACK");
+        String movimentspeed = intent.getStringExtra("MOVIMENTSPEED");
+
+        edNomeHeroi.setHint(nome);
+        txtClasse.setHint(classe);
+        edHealthPoints.setHint(healthpoints);
+        edDefense.setHint(defense);
+        edDamage.setHint(damage);
+        edAttackSpeed.setHint(speedattack);
+        edMovimentSpeed.setHint(movimentspeed);
+
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
@@ -66,10 +89,10 @@ public class AtualizarActivity extends AppCompatActivity {
         pegarClasses();
 
 
-        btnCriar.setOnClickListener(new View.OnClickListener() {
+        btnAtualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criarHeroi();
+                atualzarHeroi();
             }
         });
 
@@ -124,7 +147,7 @@ public class AtualizarActivity extends AppCompatActivity {
 
     }
 
-    public void criarHeroi(){
+    public void atualzarHeroi(){
         String nomeHeroi = edNomeHeroi.getText().toString();
         //int idClasse = (TextView)findViewById(R.id.txtClasse);
         int healthPoints = Integer.parseInt(edHealthPoints.getText().toString());
@@ -140,9 +163,9 @@ public class AtualizarActivity extends AppCompatActivity {
                 defense,
                 damage,
                 attackSpeed,
-                movimentSpeed,supplierNames,supplierNames);
+                movimentSpeed,supplierNames,photos);
 
-        Call<Heroi> call = api.createUser("Content-Type","application/json","",heroi);
+        Call<Heroi> call = api.atualizarHeroi("Content-Type","application/json","",id,heroi);
 
         call.enqueue(new Callback<Heroi>() {
             @Override

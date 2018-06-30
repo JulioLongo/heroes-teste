@@ -39,13 +39,29 @@ public class Heroi {
 
     @SerializedName("specialties")
     @Expose
-    private  List<Integer> specialties = null;
+    private  List<SpellValue> specialties = null;
 
     @SerializedName("photos")
     @Expose
     private  List<Integer> photos = null;
 
-    public Heroi(Integer classId, String name, Integer healthPoints, Integer defense, Integer damage, Double attackSpeed, Integer movimentSpeed, List<Integer> specialties, List<Integer> photos) {
+    public static class SpellValue {
+        @SerializedName("id")
+        public String idSpell;
+        @SerializedName("name")
+        public String nameSpell;
+
+        public String getIdSpell() {
+            return idSpell;
+        }
+
+        public String getNameSpell() {
+            return nameSpell;
+        }
+    }
+
+
+    public Heroi(Integer classId, String name, Integer healthPoints, Integer defense, Integer damage, Double attackSpeed, Integer movimentSpeed, List<SpellValue> specialties, List<Integer> photos) {
         this.classId = classId;
         this.name = name;
         this.healthPoints = healthPoints;
@@ -121,11 +137,11 @@ public class Heroi {
         this.movimentSpeed = movimentSpeed;
     }
 
-    public  List<Integer> getSpecialties() {
+    public  List<SpellValue> getSpecialties() {
         return specialties;
     }
 
-    public void setSpecialties( List<Integer> specialties) {
+    public void setSpecialties( List<SpellValue> specialties) {
         this.specialties = specialties;
     }
 

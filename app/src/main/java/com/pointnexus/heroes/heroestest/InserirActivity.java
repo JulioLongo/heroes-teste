@@ -27,7 +27,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class InserirActivity extends AppCompatActivity {
 
     private static final String TAG = InserirActivity.class.getSimpleName();
-    List<Integer> supplierNames = Arrays.asList(1, 2);
+    List<Heroi.SpellValue> supplierNames = Arrays.asList();
+    List<Integer> photos = Arrays.asList();
     Api api;
 
     EditText edNomeHeroi;
@@ -151,7 +152,7 @@ public class InserirActivity extends AppCompatActivity {
                 defense,
                 damage,
                 attackSpeed,
-                movimentSpeed,supplierNames,supplierNames);
+                movimentSpeed,supplierNames,photos);
 
         Call<Heroi> call = api.createUser("Content-Type","application/json","",heroi);
 

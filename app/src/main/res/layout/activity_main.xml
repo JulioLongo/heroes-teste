@@ -42,31 +42,9 @@
         android:id="@+id/botaoHerois"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="72dp"
         android:text="Mostrar Herois"
         app:layout_constraintStart_toStartOf="@+id/botaoInserir"
         app:layout_constraintTop_toBottomOf="@+id/botaoInserir" />
-
-    <Button
-        android:id="@+id/btnAtualizar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Atualizar Heroi"
-        app:layout_constraintStart_toStartOf="@+id/botaoHerois"
-        app:layout_constraintTop_toBottomOf="@+id/botaoHerois" />
-
-    <Button
-        android:id="@+id/btnDeletar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
-        android:text="Deletar Heroi"
-        app:layout_constraintStart_toStartOf="@+id/botaoMagias"
-        app:layout_constraintTop_toBottomOf="@+id/botaoClasses" />
 
 </android.support.constraint.ConstraintLayout>
