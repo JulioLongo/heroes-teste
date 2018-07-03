@@ -1,116 +1,285 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InserirActivity">
+        android:background="@drawable/fundo"
+    tools:context="com.pointnexus.heroes.heroestest.InserirActivity">
 
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/edNomeHeroi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
-        android:hint="Nome Herói"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/txtNomedoHeroi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="132dp"
+                    android:layout_marginStart="132dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Nome do Heroi"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtClasse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="36dp"
-        android:hint="Classe"
-        app:layout_constraintStart_toEndOf="@+id/btnAnterior"
-        app:layout_constraintTop_toBottomOf="@+id/edNomeHeroi" />
+                <EditText
+            android:id="@+id/edNomeHeroi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="Nome Herói"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/Gray"
+            app:layout_constraintStart_toStartOf="@+id/txtNomedoHeroi"
+            app:layout_constraintTop_toBottomOf="@+id/txtNomedoHeroi" />
 
-    <Button
-        android:id="@+id/btnAnterior"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text="Anterior"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edNomeHeroi" />
+                <TextView
+            android:id="@+id/txtClasse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:text="Classe"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/btnAnterior"
+            app:layout_constraintTop_toBottomOf="@+id/edNomeHeroi" />
 
-    <Button
-        android:id="@+id/btnProximo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="20dp"
-        android:text="Proximo"
-        app:layout_constraintStart_toEndOf="@+id/txtClasse"
-        app:layout_constraintTop_toBottomOf="@+id/edNomeHeroi" />
+                <Button
+                    android:id="@+id/btnAnterior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Anterior"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edNomeHeroi" />
 
-    <EditText
-        android:id="@+id/edHealthPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:hint="Pontos de Vida"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAnterior" />
+                <Button
+            android:id="@+id/btnProximo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="44dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="12dp"
+            android:text="Proximo"
+            app:layout_constraintStart_toEndOf="@+id/txtClasse"
+            app:layout_constraintTop_toBottomOf="@+id/edNomeHeroi" />
 
-    <EditText
-        android:id="@+id/edDefense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:hint="Defesa"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edHealthPoints" />
+                <ImageView
+                    android:id="@+id/imgVida"
+                    android:layout_width="44dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnAnterior"
+                    app:srcCompat="@drawable/pontosdevida" />
 
-    <EditText
-        android:id="@+id/edDamage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:hint="Dano"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edDefense" />
+                <TextView
+                    android:id="@+id/txtVida"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Pontos de vida"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/imgVida"
+                    app:layout_constraintTop_toBottomOf="@+id/btnAnterior" />
 
-    <EditText
-        android:id="@+id/edAttackSpeed"
-        android:layout_width="wrap_content"
-        android:layout_height="47dp"
-        android:layout_marginTop="16dp"
-        android:hint="Velocidade de Ataque"
-        app:layout_constraintTop_toBottomOf="@+id/edDamage"
-        tools:layout_editor_absoluteX="16dp" />
+                <EditText
+                    android:id="@+id/edHealthPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="Pontos de Vida"
+                    android:textColorHint="@color/Gray"
+                    app:layout_constraintStart_toStartOf="@+id/txtVida"
+                    app:layout_constraintTop_toBottomOf="@+id/txtVida" />
 
-    <EditText
-        android:id="@+id/edMovimentSpeed"
-        android:layout_width="wrap_content"
-        android:layout_height="47dp"
-        android:layout_marginTop="16dp"
-        android:hint="Velocidade de Movimento"
-        app:layout_constraintTop_toBottomOf="@+id/edAttackSpeed"
-        tools:layout_editor_absoluteX="16dp" />
+                <ImageView
+            android:id="@+id/imgDefesa"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edHealthPoints"
+            app:srcCompat="@drawable/defesa" />
 
-    <Button
-        android:id="@+id/btnCriar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="Criar"
-        app:layout_constraintStart_toEndOf="@+id/edMovimentSpeed"
-        app:layout_constraintTop_toBottomOf="@+id/edAttackSpeed" />
+                <TextView
+            android:id="@+id/txtDefesa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Defesa"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/imgDefesa"
 
-</android.support.constraint.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/edHealthPoints" />
+
+                <EditText
+                    android:id="@+id/edDefense"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Defesa"
+                    android:textColorHint="@color/Gray"
+                    app:layout_constraintStart_toStartOf="@+id/txtDefesa"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDefesa" />
+
+                <ImageView
+                    android:id="@+id/imgDano"
+                    android:layout_width="44dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edDefense"
+                    app:srcCompat="@drawable/dano" />
+
+                <TextView
+                    android:id="@+id/txtDano"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+
+                    android:text="Dano"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/imgDano"
+                    app:layout_constraintTop_toBottomOf="@+id/edDefense" />
+
+                <EditText
+                    android:id="@+id/edDamage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Dano"
+                    android:textColorHint="@color/Gray"
+                    app:layout_constraintStart_toStartOf="@+id/txtDano"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDano" />
+
+                <ImageView
+                    android:id="@+id/imgVelociadeAtaque"
+                    android:layout_width="44dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edDamage"
+                    app:srcCompat="@drawable/velocidadeataque" />
+
+                <TextView
+                    android:id="@+id/txtVelociadeAtaque"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Velociade de Ataque"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/imgVelociadeAtaque"
+                    app:layout_constraintTop_toBottomOf="@+id/edDamage" />
+
+                <EditText
+                    android:id="@+id/edAttackSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="47dp"
+                    android:layout_marginTop="12dp"
+                    android:hint="Velocidade de Ataque"
+                    android:textColorHint="@color/Gray"
+                    app:layout_constraintStart_toStartOf="@+id/txtVelociadeAtaque"
+                    app:layout_constraintTop_toBottomOf="@+id/txtVelociadeAtaque" />
+
+                <ImageView
+                    android:id="@+id/imgVelociadeMovimento"
+                    android:layout_width="44dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edAttackSpeed"
+                    app:srcCompat="@drawable/velocidademovimento" />
+
+                <TextView
+                    android:id="@+id/txtVelociadeMovimento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Velociade de Movimento"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/imgVelociadeMovimento"
+                    app:layout_constraintTop_toBottomOf="@+id/edAttackSpeed" />
+
+                <EditText
+                    android:id="@+id/edMovimentSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="47dp"
+                    android:layout_marginTop="8dp"
+                    android:hint="Velocidade de Movimento"
+                    android:textColorHint="@color/Gray"
+                    app:layout_constraintStart_toStartOf="@+id/txtVelociadeMovimento"
+                    app:layout_constraintTop_toBottomOf="@+id/txtVelociadeMovimento" />
+
+                <Button
+                    android:id="@+id/btnCriar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Criar"
+                    tools:layout_editor_absoluteX="316dp"
+                    tools:layout_editor_absoluteY="563dp" />
+
+                <ListView
+                    android:id="@+id/listaEspeciladePronta"
+                    android:layout_width="123dp"
+                    android:layout_height="74dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintStart_toEndOf="@+id/listaMagiasNumero"
+                    app:layout_constraintTop_toBottomOf="@+id/edMovimentSpeed" />
+
+                <ListView
+                    android:id="@+id/listaEspecialidade"
+                    android:layout_width="87dp"
+                    android:layout_height="74dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edMovimentSpeed" />
+
+                <ListView
+                    android:id="@+id/listaMagiasNumero"
+                    android:layout_width="80dp"
+                    android:layout_height="74dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintStart_toEndOf="@+id/listaEspecialidade"
+                    app:layout_constraintTop_toBottomOf="@+id/edMovimentSpeed" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>

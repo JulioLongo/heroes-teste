@@ -102,6 +102,7 @@ public class HeroiActivity extends AppCompatActivity {
                 intent.putExtra("SPEEDATTACK",txtVelocidadeAtaque.getText().toString());
                 intent.putExtra("MOVIMENTSPEED",txtVelocidadeMovimento.getText().toString());
 
+                finish();
                 startActivity(intent);
             }
         });
@@ -168,14 +169,46 @@ public class HeroiActivity extends AppCompatActivity {
         btnProcurar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //procurarClasse();
+                procurarHerois();
             }
         });
-
         //ALIMENTA LISTVIEW
         pegarHerois();
     }
 
+    public void procurarHerois() {
+        //PEGA ID DIGITADO
+        String heroiId = editText.getText().toString();
+
+        //CHAMA RESQUEST DA API PARA PEGAR RESPONSE COM ID DEFINIDO
+        Call<Heroi> call = api.pegarHerois(heroiId);
+
+        call.enqueue(new Callback<Heroi>() {
+            @Override
+            public void onResponse(Call<Heroi> call, Response<Heroi> response) {
+                //MOSTRA RESULTADOS
+                Heroi heroipego = response.body();
+                if (heroipego != null) {
+                    txtId.setText(String.valueOf(heroipego.getId()));
+                    idUpdateDelete = Integer.parseInt(txtId.getText().toString());
+                    txtNome.setText(heroipego.getName());
+                    txtClasse.setText(heroipego.getClassName());
+                    txtHealthPoints.setText(String.valueOf(heroipego.getHealthPoints()));
+                    txtDefesa.setText(String.valueOf(heroipego.getDefense()));
+                    txtDano.setText(String.valueOf(heroipego.getDamage()));
+                    txtVelocidadeAtaque.setText(String.valueOf(heroipego.getAttackSpeed()));
+                    txtVelocidadeMovimento.setText(String.valueOf(heroipego.getMovimentSpeed()));
+                } else {
+                    txtId.setText("bugo");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Heroi> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     //Metodo pegar Herois
     private void pegarHerois() {

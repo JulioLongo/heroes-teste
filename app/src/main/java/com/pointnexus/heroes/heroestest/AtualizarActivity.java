@@ -170,6 +170,10 @@ public class AtualizarActivity extends AppCompatActivity {
         call.enqueue(new Callback<Heroi>() {
             @Override
             public void onResponse(Call<Heroi> call, Response<Heroi> response) {
+                Toast.makeText(getApplicationContext(), "Herói Atualizado", Toast.LENGTH_LONG).show();
+                finish();
+                Intent intent = new Intent(AtualizarActivity.this,HeroiActivity.class);
+                startActivity(intent);
             }
 
             @Override

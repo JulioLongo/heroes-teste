@@ -4,21 +4,34 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".ClassesActivity">
+tools:context=".ClassesActivity"
+    android:background="@drawable/fundo">
 
-<EditText
-    android:id="@+id/main_edit_username"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="16dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="40dp"
-    android:layout_weight="1"
-    android:hint="Escreva o id de uma classe"
-    android:imeOptions="actionSearch"
-    android:inputType="text"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Pocurar Classes"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/main_edit_username"
+        android:textColorHint="@color/White"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_weight="1"
+        android:hint="Escreva o id de uma classe"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent" />
 
 <Button
     android:id="@+id/main_btn_lookup"
@@ -32,17 +45,16 @@ tools:context=".ClassesActivity">
     app:layout_constraintTop_toTopOf="parent" />
 
 
-<TextView
-    android:id="@+id/txtId"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="16dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="20dp"
-    android:text="Classe:"
-    android:textSize="16dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/main_edit_username" />
+    <TextView
+        android:id="@+id/txtId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Classe:"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/main_edit_username"
+        app:layout_constraintTop_toBottomOf="@+id/main_edit_username" />
 
 <ListView
     android:id="@+id/listViewHeroes"

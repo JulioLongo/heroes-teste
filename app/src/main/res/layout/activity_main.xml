@@ -4,47 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fundo"
     tools:context="com.pointnexus.heroes.heroestest.MainActivity">
 
 
     <Button
         android:id="@+id/botaoInserir"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="112dp"
         android:text="Inserir Heroi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/botaoClasses"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="56dp"
         android:text="Ver Classes"
         app:layout_constraintStart_toStartOf="@+id/botaoMagias"
         app:layout_constraintTop_toBottomOf="@+id/botaoMagias" />
 
     <Button
         android:id="@+id/botaoMagias"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="64dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="112dp"
         android:text="Ver Magias"
         app:layout_constraintStart_toEndOf="@+id/botaoInserir"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/botaoHerois"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="56dp"
         android:text="Mostrar Herois"
         app:layout_constraintStart_toStartOf="@+id/botaoInserir"
         app:layout_constraintTop_toBottomOf="@+id/botaoInserir" />
+
+    <Button
+        android:id="@+id/botaoFotos"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Fotos"
+        app:layout_constraintStart_toStartOf="@+id/botaoHerois"
+        app:layout_constraintTop_toBottomOf="@+id/botaoHerois" />
 
 </android.support.constraint.ConstraintLayout>
