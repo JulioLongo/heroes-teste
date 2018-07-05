@@ -21,7 +21,8 @@ tools:context=".ClassesActivity"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/main_edit_username"
+        android:id="@+id/edIdHero"
+        android:textColor="@color/White"
         android:textColorHint="@color/White"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -34,14 +35,15 @@ tools:context=".ClassesActivity"
         app:layout_constraintTop_toTopOf="parent" />
 
 <Button
-    android:id="@+id/main_btn_lookup"
-    android:layout_width="wrap_content"
+    android:id="@+id/btnProcurar"
+    android:layout_width="140dp"
     android:layout_height="wrap_content"
     android:layout_marginLeft="16dp"
     android:layout_marginStart="16dp"
     android:layout_marginTop="36dp"
     android:text="Procurar"
-    app:layout_constraintStart_toEndOf="@+id/main_edit_username"
+    android:background="@drawable/botao"
+    app:layout_constraintStart_toEndOf="@+id/edIdHero"
     app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -53,11 +55,11 @@ tools:context=".ClassesActivity"
         android:text="Classe:"
         android:textColor="@android:color/white"
         android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="@+id/main_edit_username"
-        app:layout_constraintTop_toBottomOf="@+id/main_edit_username" />
+        app:layout_constraintStart_toStartOf="@+id/edIdHero"
+        app:layout_constraintTop_toBottomOf="@+id/edIdHero" />
 
 <ListView
-    android:id="@+id/listViewHeroes"
+    android:id="@+id/listViewClasses"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"

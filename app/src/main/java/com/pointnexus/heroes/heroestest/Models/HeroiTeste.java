@@ -1,4 +1,4 @@
-package com.pointnexus.heroes.heroestest;
+package com.pointnexus.heroes.heroestest.Models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

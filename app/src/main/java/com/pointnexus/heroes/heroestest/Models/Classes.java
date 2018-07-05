@@ -1,4 +1,4 @@
-package com.pointnexus.heroes.heroestest;
+package com.pointnexus.heroes.heroestest.Models;
 
 public class Classes {
 

@@ -1,4 +1,4 @@
-package com.pointnexus.heroes.heroestest;
+package com.pointnexus.heroes.heroestest.Models;
 
 import java.sql.Array;
 import java.util.List;

@@ -1,5 +1,7 @@
 package com.pointnexus.heroes.heroestest;
 
+import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.pointnexus.heroes.heroestest.Models.Magias;
 
 import java.util.List;
 
@@ -21,10 +25,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MagiasActivity extends AppCompatActivity {
 
-    ListView listView;
+    ListView listViewMagias;
     Button btnProcurar;
-    TextView responseText;
-    EditText editText;
+    TextView txtId;
+    EditText edIdHero;
+    ProgressDialog pd;
     Api api;
 
     @Override
@@ -40,10 +45,10 @@ public class MagiasActivity extends AppCompatActivity {
         api = retrofit.create(Api.class);
 
         //Instancia Botoes
-        btnProcurar = (Button) findViewById(R.id.main_btn_lookup);
-        responseText = (TextView) findViewById(R.id.txtId);
-        editText = (EditText) findViewById(R.id.main_edit_username);
-        listView = (ListView) findViewById(R.id.listViewHeroes);
+        btnProcurar = (Button) findViewById(R.id.btnProcurar);
+        txtId = (TextView) findViewById(R.id.txtId);
+        edIdHero = (EditText) findViewById(R.id.edIdHero);
+        listViewMagias = (ListView) findViewById(R.id.listViewMagias);
 
         btnProcurar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,13 +57,18 @@ public class MagiasActivity extends AppCompatActivity {
             }
         });
 
+        //Mostra Progress Dialog
+        pd = new ProgressDialog(MagiasActivity.this);
+        pd.setMessage("carregando");
+        pd.show();
+
         //ALIMENTA LISTVIEW
         pegarMagias();
     }
 
     public void procurarMagias() {
         //PEGA ID DIGITADO
-        String magiaId = editText.getText().toString();
+        String magiaId = edIdHero.getText().toString();
 
         //CHAMA RESQUEST DA API PARA PEGAR RESPONSE COM ID DEFINIDO
         Call<Magias> call = api.pegarMagias(magiaId);
@@ -66,22 +76,24 @@ public class MagiasActivity extends AppCompatActivity {
         call.enqueue(new Callback<Magias>() {
             @Override
             public void onResponse(Call<Magias> call, Response<Magias> response) {
+                pd.dismiss();
+
                 //MOSTRA RESULTADOS
                 Magias magiapega = response.body();
                 if (magiapega != null) {
-                    responseText.setText(magiapega.getName());
+                    txtId.setText("Magia: "+magiapega.getName());
                 } else {
-                    responseText.setText("bugo");
+                    txtId.setText("Magia não encontrada");
                 }
             }
 
             @Override
             public void onFailure(Call<Magias> call, Throwable t) {
+                pd.dismiss();
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 
     //Metodo pegar CLASSES
     private void pegarMagias() {
@@ -98,6 +110,8 @@ public class MagiasActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Magias>>() {
             @Override
             public void onResponse(Call<List<Magias>> call, Response<List<Magias>> response) {
+                pd.dismiss();
+
                 //Pega todos os resultados numa lista
                 List<Magias> listaMagias = response.body();
 
@@ -110,13 +124,16 @@ public class MagiasActivity extends AppCompatActivity {
                 }
 
                 //mostrar array no listview
-                listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
+                listViewMagias.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
                         android.R.layout.simple_list_item_1,
                         magiasArray));
+
+                listViewMagias.setBackgroundColor(Color.WHITE);
             }
 
             @Override
             public void onFailure(Call<List<Magias>> call, Throwable t) {
+                pd.dismiss();
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

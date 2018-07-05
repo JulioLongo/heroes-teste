@@ -1,33 +1,32 @@
 package com.pointnexus.heroes.heroestest;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pointnexus.heroes.heroestest.Models.Heroi;
+
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Body;
 
 public class HeroiActivity extends AppCompatActivity {
 
-    ListView listView;
     Button btnProcurar;
-    TextView responseText;
     EditText editText;
     Api api;
+    ProgressDialog pd;
 
     TextView txtId;
     TextView txtNome;
@@ -57,6 +56,8 @@ public class HeroiActivity extends AppCompatActivity {
     double [] velocidadeAtaque;
     int [] velocidadeMovimento;
 
+    String opcao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +72,7 @@ public class HeroiActivity extends AppCompatActivity {
 
         //Instancia Botoes
         btnProcurar = (Button) findViewById(R.id.main_btn_lookup);
-        editText = (EditText) findViewById(R.id.main_edit_username);
+        editText = (EditText) findViewById(R.id.edIdHero);
 
 
         txtId = (TextView)findViewById(R.id.txtId);
@@ -89,10 +90,12 @@ public class HeroiActivity extends AppCompatActivity {
         btnDeletar = (Button) findViewById(R.id.btnDeletar);
         btnAtualizar = (Button) findViewById(R.id.btnAtualizar);
 
+        //VAI PARA A TELA DE INSERIR SO QUE COM OPCAO DE ATUALIZAR
         btnAtualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HeroiActivity.this, AtualizarActivity.class);
+                String opcao = "atualizar";
+                Intent intent = new Intent(HeroiActivity.this, InserirActivity.class);
                 intent.putExtra("ID",txtId.getText().toString());
                 intent.putExtra("NOME",txtNome.getText().toString());
                 intent.putExtra("CLASSE",txtClasse.getText().toString());
@@ -101,7 +104,7 @@ public class HeroiActivity extends AppCompatActivity {
                 intent.putExtra("DAMAGE",txtDano.getText().toString());
                 intent.putExtra("SPEEDATTACK",txtVelocidadeAtaque.getText().toString());
                 intent.putExtra("MOVIMENTSPEED",txtVelocidadeMovimento.getText().toString());
-
+                intent.putExtra("OPCAO",opcao);
                 finish();
                 startActivity(intent);
             }
@@ -172,7 +175,13 @@ public class HeroiActivity extends AppCompatActivity {
                 procurarHerois();
             }
         });
-        //ALIMENTA LISTVIEW
+
+        //Mostra Progress Dialog
+        pd = new ProgressDialog(HeroiActivity.this);
+        pd.setMessage("carregando");
+        pd.show();
+
+        //ALIMENTA TEXTVIEW
         pegarHerois();
     }
 
@@ -226,6 +235,8 @@ public class HeroiActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Heroi>>() {
             @Override
             public void onResponse(Call<List<Heroi>> call, Response<List<Heroi>> response) {
+                pd.dismiss();
+
                 //Pega todos os resultados
                 List<Heroi> listaHerois = response.body();
 
@@ -254,7 +265,7 @@ public class HeroiActivity extends AppCompatActivity {
                     velocidadeAtaque[i] = listaHerois.get(i).getAttackSpeed();
                 }
 
-                //mostrar array no listview
+                //mostrar array nos TextView
                 txtId.setText(String.valueOf(id[0]));
                 idUpdateDelete = (id[0]);
                 txtNome.setText(nome[0]);
@@ -269,6 +280,7 @@ public class HeroiActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Heroi>> call, Throwable t) {
+                pd.dismiss();
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -290,6 +302,7 @@ public class HeroiActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Heroi> call, Response<Heroi> response) {
                 finish();
+                Toast.makeText(HeroiActivity.this,"Heroi deletado",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(HeroiActivity.this,HeroiActivity.class);
                 startActivity(intent);
 

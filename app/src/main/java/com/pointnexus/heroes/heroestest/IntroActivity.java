@@ -44,12 +44,12 @@ public class IntroActivity extends AppCompatActivity {
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/fontpixel.ttf");
         txtTexto.setTypeface(custom_font);
 
+
         //AO CLICAR EM QUALQUER LUGAR DA TELA
         mylayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mudarTexto();
-
             }
         });
 

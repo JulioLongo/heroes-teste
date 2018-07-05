@@ -1,5 +1,7 @@
 package com.pointnexus.heroes.heroestest;
 
+import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.pointnexus.heroes.heroestest.Models.Classes;
 
 import java.util.List;
 
@@ -21,10 +25,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ClassesActivity extends AppCompatActivity {
 
-    ListView listView;
+    ListView listViewClasses;
     Button btnProcurar;
-    TextView responseText;
+    TextView txtId;
     EditText editText;
+    ProgressDialog pd;
     Api api;
 
     @Override
@@ -40,10 +45,10 @@ public class ClassesActivity extends AppCompatActivity {
         api = retrofit.create(Api.class);
 
         //Instancia Botoes
-        btnProcurar = (Button) findViewById(R.id.main_btn_lookup);
-        responseText = (TextView) findViewById(R.id.txtId);
-        editText = (EditText) findViewById(R.id.main_edit_username);
-        listView = (ListView) findViewById(R.id.listViewHeroes);
+        btnProcurar = (Button) findViewById(R.id.btnProcurar);
+        txtId = (TextView) findViewById(R.id.txtId);
+        editText = (EditText) findViewById(R.id.edIdHero);
+        listViewClasses = (ListView) findViewById(R.id.listViewClasses);
 
         btnProcurar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +56,12 @@ public class ClassesActivity extends AppCompatActivity {
                 procurarClasse();
             }
         });
+
+
+        //Mostra Progress Dialog
+        pd = new ProgressDialog(ClassesActivity.this);
+        pd.setMessage("carregando");
+        pd.show();
 
         //ALIMENTA LISTVIEW
         pegarClasses();
@@ -66,17 +77,19 @@ public class ClassesActivity extends AppCompatActivity {
             call.enqueue(new Callback<Classes>() {
                 @Override
                 public void onResponse(Call<Classes> call, Response<Classes> response) {
+                    pd.dismiss();
                     //MOSTRA RESULTADOS
                     Classes classepega = response.body();
                     if (classepega != null) {
-                        responseText.setText(classepega.getName());
+                        txtId.setText("Classe: "+classepega.getName());
                     } else {
-                        responseText.setText("bugo");
+                        txtId.setText("Classe não encontrada");
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Classes> call, Throwable t) {
+                    pd.dismiss();
                     Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -98,6 +111,8 @@ public class ClassesActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Classes>>() {
             @Override
             public void onResponse(Call<List<Classes>> call, Response<List<Classes>> response) {
+                pd.dismiss();
+
                 //Pega todos os resultados
                 List<Classes> listaClasses = response.body();
 
@@ -110,13 +125,17 @@ public class ClassesActivity extends AppCompatActivity {
                 }
 
                 //mostrar array no listview
-                listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
+                listViewClasses.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
                         android.R.layout.simple_list_item_1,
                         classes));
+
+                listViewClasses.setBackgroundColor(Color.WHITE);
+
             }
 
             @Override
             public void onFailure(Call<List<Classes>> call, Throwable t) {
+                pd.dismiss();
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

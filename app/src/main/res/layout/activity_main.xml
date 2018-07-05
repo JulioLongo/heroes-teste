@@ -7,23 +7,41 @@
     android:background="@drawable/fundo"
     tools:context="com.pointnexus.heroes.heroestest.MainActivity">
 
+    <ImageView
+        android:id="@+id/imgfundoMenu"
+        android:layout_width="match_parent"
+        android:layout_height="101dp"
+        app:srcCompat="@android:color/background_light" />
+
+    <TextView
+        android:id="@+id/txtMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="MENU"
+        android:textSize="48sp"
+        app:layout_constraintTop_toTopOf="@+id/imgfundoMenu"
+        tools:layout_editor_absoluteX="8dp" />
 
     <Button
         android:id="@+id/botaoInserir"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/botao"
         android:text="Inserir Heroi"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgfundoMenu" />
 
     <Button
         android:id="@+id/botaoClasses"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
+        android:background="@drawable/botao"
         android:text="Ver Classes"
         app:layout_constraintStart_toStartOf="@+id/botaoMagias"
         app:layout_constraintTop_toBottomOf="@+id/botaoMagias" />
@@ -32,18 +50,20 @@
         android:id="@+id/botaoMagias"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/botao"
         android:text="Ver Magias"
         app:layout_constraintStart_toEndOf="@+id/botaoInserir"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgfundoMenu" />
 
     <Button
         android:id="@+id/botaoHerois"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
+        android:background="@drawable/botao"
         android:text="Mostrar Herois"
         app:layout_constraintStart_toStartOf="@+id/botaoInserir"
         app:layout_constraintTop_toBottomOf="@+id/botaoInserir" />
@@ -53,6 +73,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
+        android:background="@drawable/botao"
         android:text="Fotos"
         app:layout_constraintStart_toStartOf="@+id/botaoHerois"
         app:layout_constraintTop_toBottomOf="@+id/botaoHerois" />

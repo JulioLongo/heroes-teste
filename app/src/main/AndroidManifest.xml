@@ -22,9 +22,9 @@
         <activity android:name=".MagiasActivity" />
         <activity android:name=".ClassesActivity" />
         <activity android:name=".HeroiActivity" />
-        <activity android:name=".AtualizarActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".FotosActivity"></activity>
+        <activity android:name=".FotosActivity" />
+        <activity android:name=".SelecionarMagiaActivity"></activity>
     </application>
 
 </manifest>

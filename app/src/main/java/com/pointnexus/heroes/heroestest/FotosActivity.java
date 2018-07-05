@@ -88,7 +88,7 @@ public class FotosActivity extends AppCompatActivity {
         req.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Toast.makeText(getApplicationContext(), "Foi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Em teste", Toast.LENGTH_SHORT).show();
                 Log.e("Success", new Gson().toJson(response.body()));
             }
 

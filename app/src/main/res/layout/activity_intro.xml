@@ -17,7 +17,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgfundoMenu"
         android:layout_width="match_parent"
         android:layout_height="101dp"
         app:srcCompat="@android:color/background_light" />
@@ -32,7 +32,7 @@
         android:text="Bem-vindo ao reino New Way!"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="@+id/imgfundoMenu" />
 
     <ImageView
         android:id="@+id/imgClique"

@@ -4,31 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HeroiActivity">
+    tools:context=".HeroiActivity"
+    android:background="@drawable/fundo">
 
-    <EditText
-        android:id="@+id/main_edit_username"
-        android:layout_width="0dp"
+    <ImageView
+        android:id="@+id/imgVida"
+        android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="180dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pontosdevida" />
+
+    <ImageView
+        android:id="@+id/imgDefesa"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgVida"
+        app:srcCompat="@drawable/defesa" />
+
+    <ImageView
+        android:id="@+id/imgDano"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgDefesa"
+        app:srcCompat="@drawable/dano" />
+
+    <ImageView
+        android:id="@+id/imgVelociadeAtaque"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgDano"
+        app:srcCompat="@drawable/velocidadeataque" />
+
+    <ImageView
+        android:id="@+id/imgVelociadeMovimento"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgVelociadeAtaque"
+        app:srcCompat="@drawable/velocidademovimento" />
+
+    <EditText
+        android:id="@+id/edIdHero"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:hint="Escreva o id de uma classe"
         android:imeOptions="actionSearch"
         android:inputType="text"
+        android:textColor="@color/White"
+        android:textColorHint="@color/Gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/main_btn_lookup"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/botao"
         android:text="Procurar"
-        app:layout_constraintStart_toEndOf="@+id/main_edit_username"
+        app:layout_constraintStart_toEndOf="@+id/edIdHero"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -36,130 +95,148 @@
         android:id="@+id/txtId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="184dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="172dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="16dp"
         android:text="Id"
+        android:textColor="@color/White"
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_edit_username" />
+        app:layout_constraintTop_toBottomOf="@+id/edIdHero" />
 
     <Button
         android:id="@+id/btnProximo"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="392dp"
+        android:background="@drawable/botao"
         android:text="Proximo"
-        app:layout_constraintStart_toEndOf="@+id/txtNome"
-        app:layout_constraintTop_toBottomOf="@+id/txtVelocidadeMovimento" />
+        app:layout_constraintStart_toEndOf="@+id/btnAnterior"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnAnterior"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/botao"
         android:text="Anterior"
-        app:layout_constraintEnd_toStartOf="@+id/txtNome"
-        app:layout_constraintTop_toBottomOf="@+id/txtVelocidadeMovimento" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgVelociadeMovimento" />
 
     <TextView
         android:id="@+id/txtNome"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="156dp"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="8dp"
         android:text="nome"
-        app:layout_constraintStart_toStartOf="@+id/main_edit_username"
+        android:textColor="@color/White"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtId" />
 
     <TextView
         android:id="@+id/txtClasse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="152dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="8dp"
         android:text="Classe"
-        app:layout_constraintStart_toStartOf="@+id/main_edit_username"
+        android:textColor="@color/White"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNome" />
 
     <TextView
         android:id="@+id/txtHealthPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="140dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="26dp"
         android:text="PontosVida"
-        app:layout_constraintStart_toStartOf="@+id/main_edit_username"
+        android:textColor="@color/White"
+        app:layout_constraintStart_toEndOf="@+id/imgVida"
         app:layout_constraintTop_toBottomOf="@+id/txtClasse" />
 
     <TextView
         android:id="@+id/txtDefesa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="152dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="18dp"
         android:text="Defesa"
-        app:layout_constraintStart_toStartOf="@+id/main_edit_username"
+        android:textColor="@color/White"
+        app:layout_constraintStart_toEndOf="@+id/imgDefesa"
         app:layout_constraintTop_toBottomOf="@+id/txtHealthPoints" />
 
     <TextView
         android:id="@+id/txtDano"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="176dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:text="Dano"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/White"
+        app:layout_constraintStart_toEndOf="@+id/imgDano"
         app:layout_constraintTop_toBottomOf="@+id/txtDefesa" />
 
     <TextView
         android:id="@+id/txtVelocidadeAtaque"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
-        android:layout_marginLeft="132dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
         android:text="Velocidade Ataque"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/White"
+        app:layout_constraintStart_toEndOf="@+id/imgVelociadeAtaque"
         app:layout_constraintTop_toBottomOf="@+id/txtDano" />
 
     <TextView
         android:id="@+id/txtVelocidadeMovimento"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:text="Velocidade Movimento"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/White"
+        app:layout_constraintStart_toEndOf="@+id/imgVelociadeMovimento"
         app:layout_constraintTop_toBottomOf="@+id/txtVelocidadeAtaque" />
 
     <Button
         android:id="@+id/btnDeletar"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/botao"
         android:text="Deletar"
-        app:layout_constraintEnd_toEndOf="@+id/btnProximo"
+        app:layout_constraintStart_toEndOf="@+id/btnAtualizar"
         app:layout_constraintTop_toBottomOf="@+id/btnProximo" />
 
     <Button
         android:id="@+id/btnAtualizar"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/botao"
         android:text="Atualizar"
-        app:layout_constraintTop_toBottomOf="@+id/btnAnterior"
-        tools:layout_editor_absoluteX="53dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAnterior" />
 
 
 </android.support.constraint.ConstraintLayout>
