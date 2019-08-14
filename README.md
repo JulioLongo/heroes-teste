@@ -1,3 +1,3 @@
 # Android Studio Cadastro Hero
 
-Android Studios utilizando: retrofit, picasso
+Android Studio utilizando: retrofit, picasso
